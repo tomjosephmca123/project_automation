@@ -39,7 +39,7 @@ WebDriver driver;
 		elementUtil.sendKeys(emailField,username);
 		elementUtil.sendKeys(passwordField,password);
 		elementUtil.click(submitButton);
-		String s=ClientLink.getText();
+		String s=ClientLink.getText();//for assertion
 		return s;
 	}
 
