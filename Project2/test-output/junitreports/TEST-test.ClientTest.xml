@@ -47,7 +47,7 @@ at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Delegating
 at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
 at com.sun.proxy.$Proxy15.click(Unknown Source)
-at com.obsqura.utilities.ElementUtil.click(ElementUtil.java:94)
+at utilities.ElementUtil.click(ElementUtil.java:94)
 at pages.ClientPage.clientEdit(ClientPage.java:140)
 at test.ClientTest.verifyClientEdit(ClientTest.java:41)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

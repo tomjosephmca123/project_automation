@@ -1,10 +1,10 @@
-package com.obsqura.test;
+package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.obsqura.pages.LoginPage;
-import com.obsqura.utilities.ElementUtil;
+import pages.LoginPage;
+import utilities.ElementUtil;
 
 
 

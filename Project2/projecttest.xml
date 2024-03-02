@@ -3,12 +3,12 @@
 <suite name="Suite">
 <groups>
 	<run>
-		<include name="edit"></include>
+		<include name="delete"></include>
 	</run>
 </groups>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.obsqura.test.ProjectTest"/>
+      <class name="test.ProjectTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -7,9 +7,9 @@
   <test thread-count="5" name="Test">
   <parameter name="browsername" value="chrome"></parameter>
     <classes>
-      <class name="com.obsqura.test.LoginTest"/>
-      <class name="com.obsqura.test.ClientTest"/>
-      <class name="com.obsqura.test.ProjectTest"/>
+      <class name="test.LoginTest"/>
+      <class name="test.ClientTest"/>
+      <class name="test.ProjectTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

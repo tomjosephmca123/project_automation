@@ -1,4 +1,4 @@
-package com.obsqura.utilities;
+package utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import com.obsqura.constants.Constants;
+import constants.Constants;
 
 
 public class ElementUtil {
@@ -99,9 +99,6 @@ public class ElementUtil {
 		for ( WebElement el : element ) {
 			if ( !el.isSelected() ) {
 				el.click();
-			}else if(el.isSelected()) {
-
-				el.click();		    	
 			}
 		}
 
@@ -247,6 +244,17 @@ public class ElementUtil {
 		element.sendKeys(Keys.ENTER);
 
 		}
+	public int getTableRowCount(List<WebElement> tableRowData,String expectedValue) {
+		int counter=0;
+		for(int i=0;i<tableRowData.size();i++) {
+			String value=tableRowData.get(i).getText();
+			if(expectedValue.equalsIgnoreCase(value)) {
+				counter=i+1;
+				break;
+			}
+		}
+		return counter;
+	}
 	
 
 }

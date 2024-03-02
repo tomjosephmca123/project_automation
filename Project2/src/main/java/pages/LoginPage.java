@@ -1,12 +1,12 @@
-package com.obsqura.pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.obsqura.utilities.ElementUtil;
-import com.obsqura.utilities.WaitUtil;
+import utilities.ElementUtil;
+import utilities.WaitUtil;
 
 public class LoginPage {
 WebDriver driver;

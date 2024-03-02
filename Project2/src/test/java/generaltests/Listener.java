@@ -14,8 +14,9 @@ package generaltests;
 	import com.aventstack.extentreports.ExtentReports;
 	import com.aventstack.extentreports.ExtentTest;
 	import com.aventstack.extentreports.Status;
-import com.obsqura.test.BaseTest;
-import com.obsqura.utilities.ExtendReportUtility;
+
+import test.BaseTest;
+import utilities.ExtendReportUtility;
 
 
 	public class Listener extends BaseTest implements ITestListener 

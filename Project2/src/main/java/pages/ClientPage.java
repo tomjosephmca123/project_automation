@@ -1,15 +1,18 @@
-package com.obsqura.pages;
+package pages;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.testng.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.obsqura.utilities.ElementUtil;
-import com.obsqura.utilities.WaitUtil;
+import constants.Constants;
+import utilities.ElementUtil;
+import utilities.WaitUtil;
 
 public class ClientPage{
 	
@@ -89,7 +92,7 @@ public class ClientPage{
 	WebElement deletemsg;
 
 	@FindBy(xpath="//table[@id='client-table']//tbody//tr[1]//td[2]")
-	WebElement newaddedcompany;
+	WebElement search_element;
 
 	
 	@FindBy(xpath="//b[@role='presentation']")
@@ -130,33 +133,50 @@ public class ClientPage{
 		waitUtil.waitForElementvisibile(ClientLink);
 		elementUtil.click(ClientLink);
 		elementUtil.sendKeys(searchField,companyname);
-		String s=elementUtil.getText(newaddedcompany);
+		String s=elementUtil.getText(search_element);
 		return s;
 	}
 	public String clientSearch(String searchelement) {
 		elementUtil.click(ClientLink);
 		elementUtil.sendKeys(searchField,searchelement);
-		String s=elementUtil.getText(newaddedcompany);
+		String s=elementUtil.getText(search_element);
 		return s;
 	}
-	public String clientEdit(String newAddress) {
+	public String clientEdit(String projecttoedit,String newAddress) {
 		elementUtil.click(ClientLink);
+		String actualresult=clientSearch(projecttoedit);
+		Assert.assertEquals(actualresult,projecttoedit);
 		elementUtil.click(editField);
 		elementUtil.sendKeys(addressField,newAddress);
 		elementUtil.click(submitField);
+		waitUtil.waitForElementvisibile(ClientLink);
+		elementUtil.click(ClientLink);
+		String actualresult2=clientSearch(projecttoedit);
+		Assert.assertEquals(actualresult2,projecttoedit);
 		waitUtil.waitForElementvisibile(editField);
 		elementUtil.click(editField);
 		String s=elementUtil.getText(addressField);
 		return s;
 	}
 
-	public String clientDelete() {
+	public boolean clientDelete(String valuefordelete) {
 		elementUtil.click(ClientLink);
-		elementUtil.click(deleteField);
+		int m=companynamelist.size();//row count before deletion
+		String actualresult=clientSearch(valuefordelete);
+		Assert.assertEquals(actualresult,valuefordelete);
+		int rowcount=elementUtil.getTableRowCount(companynamelist,valuefordelete);
+		WebElement deleterow=driver.findElement(By.xpath("//table[@id='client-table']//tbody//tr["+rowcount+"]//td["+Constants.clientdeleteiconcoloumnnumber+"]//a[@title='Delete client']"));
+		elementUtil.click(deleterow);
 		elementUtil.click(confirmDeleteButton);
 		waitUtil.waitForElementvisibile(deletemsg);
 		String s=elementUtil.getText(deletemsg);
-		return s;
+		waitUtil.waitForElementvisibile(ClientLink);
+		elementUtil.click(ClientLink);
+		int n=companynamelist.size();//row count after deletion
+		if(n==m-1)
+			return true;
+		else
+			return false;
 	}
 	public boolean sortByCompanyName() {
 		boolean flag;

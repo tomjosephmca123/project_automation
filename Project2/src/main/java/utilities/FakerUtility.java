@@ -1,4 +1,4 @@
-package com.obsqura.utilities;
+package utilities;
 
 
 import com.github.javafaker.Faker;

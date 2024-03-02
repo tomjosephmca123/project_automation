@@ -1,4 +1,4 @@
-package com.obsqura.test;
+package test;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,10 +18,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.obsqura.constants.Constants;
-import com.obsqura.utilities.ElementUtil;
-
+import constants.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.ElementUtil;
 
 public class BaseTest {
 	WebDriver driver;

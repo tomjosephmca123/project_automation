@@ -4,14 +4,14 @@
   <test thread-count="5" name="Test">
   <parameter name="browsername" value="chrome"></parameter>
     <classes>
-      <class name="com.obsqura.test.LoginTest"/>
+      <class name="test.LoginTest"/>
     </classes>
   </test> <!-- Test -->
   
   <test thread-count="5" name="Test2">
   <parameter name="browsername" value="edge"></parameter>
     <classes>
-      <class name="com.obsqura.test.LoginTest"/>
+      <class name="test.LoginTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

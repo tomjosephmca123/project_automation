@@ -1,12 +1,12 @@
-package com.obsqura.test;
+package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.obsqura.pages.ClientPage;
-import com.obsqura.pages.LoginPage;
-import com.obsqura.utilities.ElementUtil;
-import com.obsqura.utilities.FakerUtility;
+import pages.ClientPage;
+import pages.LoginPage;
+import utilities.ElementUtil;
+import utilities.FakerUtility;
 
 
 public class ClientTest extends BaseTest{
@@ -37,17 +37,16 @@ public class ClientTest extends BaseTest{
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.doLogin(ElementUtil.getPropertyValue("username"),ElementUtil.getPropertyValue("password"));
 		ClientPage clientPage=new ClientPage(driver);
-		String actualresult=clientPage.clientEdit("uk");
-		Assert.assertEquals(actualresult,"uk");
+		String actualresult=clientPage.clientEdit("hp","India");
+		Assert.assertEquals(actualresult,"India");
 	}
 	@Test(groups= {"delete"})
 	public void verifyClientDelete() {
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.doLogin(ElementUtil.getPropertyValue("username"),ElementUtil.getPropertyValue("password"));
 		ClientPage clientPage=new ClientPage(driver);
-		String actualmsg=clientPage.clientDelete();
-		System.out.println(actualmsg);
-		Assert.assertEquals(actualmsg,"The record has been deleted.","wrong msg ");
+		boolean f=clientPage.clientDelete("abc");
+		Assert.assertTrue(f);
 	}
 	@Test(groups= {"sort"})
 	public void verifySortByCompanyName() {

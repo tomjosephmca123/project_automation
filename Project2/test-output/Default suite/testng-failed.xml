@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="test.ClientTest">
+      <class name="test.UploadTest">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="takeScreenShotOnFailure"/>
-          <include name="verifyClientEdit"/>
+          <include name="afterTest"/>
+          <include name="verifyUpload"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- test.ClientTest -->
+      </class> <!-- test.UploadTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

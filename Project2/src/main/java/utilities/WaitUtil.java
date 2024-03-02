@@ -1,4 +1,4 @@
-package com.obsqura.utilities;
+package utilities;
 
 import java.time.Duration;
 
@@ -7,7 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.obsqura.constants.Constants;
+
+import constants.Constants;
 
 public class WaitUtil {
 	//define the wait functions used in project

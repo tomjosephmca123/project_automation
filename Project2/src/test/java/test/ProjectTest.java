@@ -1,4 +1,4 @@
-package com.obsqura.test;
+package test;
 
 import java.io.IOException;
 
@@ -7,12 +7,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.obsqura.constants.Constants;
-import com.obsqura.pages.ClientPage;
-import com.obsqura.pages.LoginPage;
-import com.obsqura.pages.ProjectPage;
-import com.obsqura.utilities.ElementUtil;
-import com.obsqura.utilities.ExcelRead;
+import constants.Constants;
+import pages.ClientPage;
+import pages.LoginPage;
+import pages.ProjectPage;
+import utilities.ElementUtil;
+import utilities.ExcelRead;
 
 public class ProjectTest extends BaseTest{
 	
@@ -48,8 +48,8 @@ public class ProjectTest extends BaseTest{
 	  LoginPage loginpage=new LoginPage(driver);
 	  loginpage.doLogin(ElementUtil.getPropertyValue("username"),ElementUtil.getPropertyValue("password"));
 	  ProjectPage projectpage=new ProjectPage(driver);
-	  String actualresult=projectpage.deleteProject();
-	  Assert.assertEquals(actualresult,"The record has been deleted.","wrong msg ");
+	  boolean f=projectpage.deleteProject("test");
+	  Assert.assertTrue(f);
   }
   
   @Test(groups= {"sort"})
